@@ -1,0 +1,70 @@
+.centralise {
+    text-align: center
+}
+
+.bold{
+    font-weight: bold;
+}
+.title {
+    font-weight: bold;
+    padding: 10px;
+    margin: 25px;
+    border-style: solid;
+    width: 20%;
+    border-width: medium;
+    border-color: black;
+}
+
+.body {
+    padding: 10px;
+    margin: 25px;
+    border: 2px solid black round;
+    width: 20%;
+    height: 30%;
+    border-width: medium;
+    border-color: black;
+    text-align: start;
+}
+
+.submit {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+}
+
+a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+}
+
+h1.error {
+    padding-top: 10%;
+    font-weight: bold;
+    font-size: larger;
+    color: red;
+}
+
+.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+}
+p.text{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+}
+.note{
+    font-weight: bold;
+    font-size: xx-large;
+}
