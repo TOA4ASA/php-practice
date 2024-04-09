@@ -51,8 +51,8 @@ require '../functions.php' ?>
 <?php
 
 
-$val1 = $_GET['val1'];
-$val2 = $_GET['val2'];
+$val1 = $_GET['val1']?? 'not set';
+$val2 = $_GET['val2']?? 'not set';
 $errors = [];
 
 if (empty($val1)) {
@@ -71,7 +71,12 @@ if (preg_match("/[a-z]/i", $val1)) {
     intval($val2);
 }
 
-errorHandeling($errors);
+if (!empty($errors)) {
+    foreach ($errors as $error) {
+        return "<div class='centralise bold'><h2>$error[0]</h2></div><br>";
+    }
+    exit();
+}
 
 $method = $_GET['method'];
 $result = check($method, $val1, $val2);
