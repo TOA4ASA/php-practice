@@ -33,13 +33,11 @@ function array_most_common($array)
 $mostCommon = array_most_common($exploded);
 ?>
 
-
-
 <body>
 
-        <h3>number of words: <?= $countResult ?></h3>
-        <h3>longest word is: <?= $maxLenResult ?> characters</h3>
-        <h3>number of words: <?= $avrCharResult ?? 0 ?></h3>
+    <h3>number of words: <?= $countResult ?></h3>
+    <h3>longest word is: <?= $maxLenResult ?> characters</h3>
+    <h3>number of words: <?= $avrCharResult ?? 0 ?></h3>
 
     <br>
 
