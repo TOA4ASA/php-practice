@@ -1,6 +1,4 @@
 <?php
-
-$text = htmlspecialchars($_GET['text'] ?? '');
 $exploded = explode(" ", $text);
 
 //Count the total number of words.

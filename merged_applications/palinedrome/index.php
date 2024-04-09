@@ -1,14 +1,14 @@
 <?php
-$strip = $_GET['text'] ?? null;
+$strip = $text;
 $strip = trim($strip);
 $strip = strtolower($strip);
 $strip = preg_replace('/\s+/', '', $strip);
-$text = preg_replace("#[[:punct:]]#", "", $strip);
-$palidrome = strrev($text);
-if(empty($text)){
+$texts = preg_replace("#[[:punct:]]#", "", $strip);
+$palidrome = strrev($texts);
+if(empty($texts)){
     $palResult= '';
 }
-elseif ($text == $palidrome) {
+elseif ($texts == $palidrome) {
     $palResult = 'This is a palindrome.';
 } else {
     $palResult = 'This is not a palindrome.';

@@ -43,12 +43,6 @@ function redirect($path)
     exit();
 }
 
-function getGetMsg($msg)
-{
-    $msg = str_replace('?','',$msg);
-    $msg =  explode('&',$msg);
-    return($msg);
-}
 
 function check($method, $val1, $val2)
 {

@@ -1,10 +1,4 @@
 <?php
-
-
-$val1 = $_GET['val1'] ?? 'not set';
-$val2 = $_GET['val2'] ?? 'not set';
-$errors = [];
-
 if (empty($val1)) {
     $errors['field1'] = ['please enter an value in the first field'];
 }
