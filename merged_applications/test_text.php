@@ -8,6 +8,6 @@ In hac habitasse platea dictumst. Phasellus suscipit laoreet ullamcorper. Nullam
 Proin tortor augue, congue vel lorem at, dictum rhoncus diam. Nullam suscipit dui id neque venenatis lobortis. Aliquam et viverra dolor. Cras lacinia in risus vel volutpat. Praesent et diam non ex placerat efficitur in eu massa. Praesent nulla elit, faucibus quis metus ut, semper tempus mauris. Duis tincidunt eu tortor a convallis. Nunc eget.";
 //440 words 
 
-$test_most_frequent= "
+$test_most_frequent = "
 This is an test to test the test of the test in the frequency
 ";

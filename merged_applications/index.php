@@ -70,6 +70,18 @@ foreach ($filePath as $path => $condition) {
                 <div>
                     <h3><?= $calResult ?? null ?></h3>
                 </div>
+                <div>
+                    <h2>
+                        <?php
+                        // error handeling for the calculator
+                        if (isset($errors['calc'])) {
+                            foreach ($errors['calc'] as $error) {
+                                echo $error . "<br>";
+                            }
+                        }
+                        ?>
+                    </h2>
+                </div>
             <?php } ?>
         </div>
 
@@ -133,11 +145,14 @@ foreach ($filePath as $path => $condition) {
 </html>
 
 <div>
-    <h4>
+    <h2>
         <?php
-        foreach ($errors as $error) {
-            echo $error. "<br>";
+        //error handeling for the textfield
+        if (isset($errors['calc'])) {
+            foreach ($errors['text'] as $error) {
+                echo $error . "<br>";
+            }
         }
         ?>
-    </h4>
+    </h2>
 </div>
