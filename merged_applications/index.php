@@ -2,6 +2,7 @@
 $fileReq = false;
 $calcReq = false;
 
+// gets all of required gets too use in the application
 $switchParlinedrome = htmlspecialchars($_GET['pd']) ?? null;
 $switchDuplicates = htmlspecialchars($_GET['D']) ?? null;
 $switchWordCount = htmlspecialchars($_GET['wc']) ?? null;
@@ -9,10 +10,11 @@ $switchCalc = htmlspecialchars($_GET['cal']) ?? null;
 $val1 = htmlspecialchars($_GET['val1']) ?? null;
 $val2 = htmlspecialchars($_GET['val2']) ?? null;
 $text = htmlspecialchars($_GET['text']) ?? null;
-$definend = $val1.$val2.$text;
+$definend = $val1 . $val2 . $text;
 
-if (empty($definend)){
-    header("Location: ?method=&val1=temp&val2=temp&D=on&pd=on&wc=on&cal=on&text=temp");
+// if the required gets don't exist the aplication breaks, this makes sure the required gets exist
+if (empty($definend)) {
+    header("Location: ?method=&val1=temp&val2=temp&text=temp");
     die();
 }
 $errors = [];
@@ -24,6 +26,7 @@ $filePath = [
     'strings_and_arrays/index.php' => isset($switchWordCount),
     'calc/index.php' => isset($switchCalc)
 ];
+// checks if the functions are checked and enables the display if required
 foreach ($filePath as $path => $condition) {
     if ($condition == 1) {
         if ($path == 'calc/index.php') {
@@ -46,7 +49,8 @@ foreach ($filePath as $path => $condition) {
 </head>
 
 <body>
-
+    <!-- checks if calculator is activated, if active gets the calculator files and displays the inputs boxes
+    --note it gets displayed from the index for easier access but isn't required can be moved in its respective file -->
     <form action="" method="get">
         <div class="sidenavright">
             <?php if ($calcReq == true) {
@@ -62,8 +66,8 @@ foreach ($filePath as $path => $condition) {
             <?php } ?>
         </div>
 
+        <!-- allows for enable and disable of functions -->
         <div class="sidenavleft">
-
             <section class="margin">
                 <h1>duplicates:</h1>
                 <label class="switch">
@@ -96,6 +100,8 @@ foreach ($filePath as $path => $condition) {
             <input type="submit" value="apply options">
 
         </div>
+        <!-- checks if the input is required for one of the text functions, if required displays the field
+        --note it gets displayed from the index to check all of the required functions, don't recommand removing this function from a top level file -->
         <?php if ($fileReq == true) { ?>
             <div class="container">
 
@@ -106,8 +112,8 @@ foreach ($filePath as $path => $condition) {
         <?php } ?>
     </form>
 
+    <!-- loads all the checked functions exept calculator  -->
     <div class=container>
-
         <?php
         foreach ($filePath as $path => $condition) {
             if ($condition == 1 && $path != 'calc/index.php') {

@@ -1,22 +1,26 @@
 <?php
+//temp is to resolve the startup undifined error
 if ($text == 'temp') {
     unset($text);
     $text = '';
 }
+
+// a bunch of formatting to display and use the correct data
+
+// seperates each word into its own array
 $exploded = explode(" ", $text);
 
-//Count the total number of words.
+// count the total number of words.
 $num_words = str_word_count($text);
 $countResult = $num_words;
 
-//Find the longest word in the text.
+// find the longest word in the text.
 $maxLen = max(array_map('strlen', $exploded));
 $maxLenResult = $maxLen;
 
-//Determine the average word length.
+// determine the average word length.
 $text_no_spaces = preg_replace('/\s/u', '', $text);
 $num_char = strlen($text_no_spaces);
-// echo "total amount of characters ".$num_char."<br>";
 
 if ($num_words == 0 ?? $num_char == 0) {
     $errors = 'can\'t devide trough 0';
@@ -24,7 +28,7 @@ if ($num_words == 0 ?? $num_char == 0) {
     $avr_char = $num_char / $num_words;
     $avrCharResult = round($avr_char, 1);
 }
-//Identify the most frequent word(s) and their count(s).
+// identify the most frequent words and their counts.
 function array_most_common($array)
 {
     $counted = array_count_values($array);

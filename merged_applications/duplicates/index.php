@@ -1,15 +1,13 @@
 <?php
-$array = array();
-$texts = $_GET['text'] ?? null;
-$texts = strtolower($texts);
-$exploded = explode(" ", $texts);
-// dd($exploded);
-if (!isset($texts)) {
+// sets the text in the right format
+$text = strtolower($text);
+$exploded = explode(" ", $text);
+ 
+if (!isset($text)) {
     $uniqueTexts = ['not found, make sure the text is not empty'];
-} elseif ( $texts == 'temp' ) {
+} elseif ( $text == 'temp' ) {
     $uniqueTexts = [];
-} 
-else {
+} else {
     $uniqueTexts = array_unique($exploded);
 }
 
