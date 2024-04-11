@@ -2,7 +2,7 @@
 
 use Core\Response;
 
-function dd($value)
+function pre($value)
 {
     echo "<pre>";
     var_dump($value);
@@ -10,7 +10,12 @@ function dd($value)
 
     die();
 }
-
+function pr($value)
+{
+    echo "<pre>";
+    var_dump($value);
+    echo "</pre>";
+}
 function urlIs($value)
 {
     return $_SERVER['REQUEST_URI'] === $value;
