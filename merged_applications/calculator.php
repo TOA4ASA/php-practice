@@ -1,11 +1,14 @@
 <?php
 // checking for errors
-if (empty($val1)) {
-    $errors['field1'] = ['please enter an value in the first field'];
+if ($val1 =='temp' && $val2 =='temp' ){
+    '';
+}
+elseif (empty($val1)) {
+    $errors['field1'] = 'please enter an value in the first field';
 } elseif (empty($val2)) {
-    $errors['field2'] = ['please enter an value in the second field'];
+    $errors['field2'] = 'please enter an value in the second field';
 } elseif (preg_match("/[a-z]/i", $val1) ?? preg_match("/[a-z]/i", $val2)) {
-    $errors['char1'] = ["can't enter alfabet letters into the calculator"];
+    $errors['char1'] = "can't enter alfabet letters into the calculator";
 }
 // if no errors then it calculates with given values and method
 else {

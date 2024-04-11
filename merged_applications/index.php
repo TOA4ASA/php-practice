@@ -2,14 +2,21 @@
 $fileReq = false;
 $calcReq = false;
 
-// gets all of required gets too use in the application
-$switchParlinedrome = htmlspecialchars($_GET['pd']) ?? null;
-$switchDuplicates = htmlspecialchars($_GET['D']) ?? null;
-$switchWordCount = htmlspecialchars($_GET['wc']) ?? null;
-$switchCalc = htmlspecialchars($_GET['cal']) ?? null;
-$val1 = htmlspecialchars($_GET['val1']) ?? null;
-$val2 = htmlspecialchars($_GET['val2']) ?? null;
-$text = htmlspecialchars($_GET['text']) ?? null;
+// gets all of required gets too use in the application and makes sure no js, html or php code gets run
+$switchParlinedrome = $_GET['pd'] ?? null;
+$switchParlinedrome = htmlspecialchars($switchParlinedrome);
+$switchDuplicates = $_GET['D'] ?? null;
+$switchDuplicates = htmlspecialchars($switchDuplicates);
+$switchWordCount = $_GET['wc'] ?? null;
+$switchWordCount = htmlspecialchars($switchWordCount);
+$switchCalc = $_GET['cal'] ?? null;
+$switchCalc = htmlspecialchars($switchCalc);
+$val1 = $_GET['val1'] ?? null;
+$val1 = htmlspecialchars($val1);
+$val2 = $_GET['val2'] ?? null;
+$val2 = htmlspecialchars($val2);
+$text = $_GET['text'] ?? null;
+$text = htmlspecialchars($text);
 $definend = $val1 . $val2 . $text;
 
 // if the required gets don't exist the aplication breaks, this makes sure the required gets exist
@@ -21,15 +28,15 @@ $errors = [];
 
 
 $filePath = [
-    'duplicates/index.php' => isset($switchDuplicates),
-    'palinedrome/index.php' => isset($switchParlinedrome),
-    'strings_and_arrays/index.php' => isset($switchWordCount),
-    'calc/index.php' => isset($switchCalc)
+    'duplicates.php' => isset($switchDuplicates),
+    'palinedrome.php' => isset($switchParlinedrome),
+    'strings_and_arrays.php' => isset($switchWordCount),
+    'calculator.php' => isset($switchCalc)
 ];
 // checks if the functions are checked and enables the display if required
 foreach ($filePath as $path => $condition) {
     if ($condition == 1) {
-        if ($path == 'calc/index.php') {
+        if ($path == 'calculator.php') {
             $calcReq = true;
         } else {
             $fileReq = true;
@@ -54,7 +61,7 @@ foreach ($filePath as $path => $condition) {
     <form action="" method="get">
         <div class="sidenavright">
             <?php if ($calcReq == true) {
-                require 'calc/index.php'; ?>
+                require 'calculator.php'; ?>
 
                 <tbody><input id="val1" name=val1 type="text" value="<?= $val1 == 'temp' ? '' : $val1 ?>"></tbody><br>
                 <tbody><input id="val2" name=val2 type='text' value="<?= $val2 == 'temp' ? '' : $val2 ?>"></tbody><br><br>
@@ -71,7 +78,7 @@ foreach ($filePath as $path => $condition) {
             <section class="margin">
                 <h1>duplicates:</h1>
                 <label class="switch">
-                    <input type="checkbox" name=D <?php echo (isset($switchDuplicates)) ?  "checked=checked" : '' ?> />
+                    <input type="checkbox" name=D <?php echo (!isset($switchDuplicates)) ?  "" : 'checked=checked' ?> />
 
                     <span class="slider round"></span>
                 </label>
@@ -79,21 +86,21 @@ foreach ($filePath as $path => $condition) {
             <section class="margin">
                 <h1>parlinedrome:</h1>
                 <label class="switch">
-                    <input type="checkbox" name=pd <?php echo (isset($switchParlinedrome)) ?  "checked=checked" : '' ?> />
+                    <input type="checkbox" name=pd <?php echo (!isset($switchParlinedrome)) ?  "" : 'checked=checked' ?> />
                     <span class="slider round"></span>
                 </label>
             </section>
             <section class="margin">
                 <h1>Word Count:</h1>
                 <label class="switch">
-                    <input type="checkbox" name=wc <?php echo (isset($switchWordCount)) ?  "checked=checked" : '' ?> />
+                    <input type="checkbox" name=wc <?php echo (!isset($switchWordCount)) ?  "" : 'checked=checked' ?> />
                     <span class="slider round"></span>
                 </label>
             </section>
             <section class="margin">
                 <h1>calculator:</h1>
                 <label class="switch">
-                    <input type="checkbox" name=cal <?php echo (isset($switchCalc)) ?  "checked=checked" : '' ?> />
+                    <input type="checkbox" name=cal <?php echo (!isset($switchCalc)) ?  "" : 'checked=checked' ?> />
                     <span class="slider round"></span>
                 </label>
             </section>
@@ -116,7 +123,7 @@ foreach ($filePath as $path => $condition) {
     <div class=container>
         <?php
         foreach ($filePath as $path => $condition) {
-            if ($condition == 1 && $path != 'calc/index.php') {
+            if ($condition == 1 && $path != 'calculator.php') {
                 require $path;
             }
         }
@@ -124,3 +131,13 @@ foreach ($filePath as $path => $condition) {
     </div>
 
 </html>
+
+<div>
+    <h4>
+        <?php
+        foreach ($errors as $error) {
+            echo $error. "<br>";
+        }
+        ?>
+    </h4>
+</div>

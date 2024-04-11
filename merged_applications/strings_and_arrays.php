@@ -23,7 +23,7 @@ $text_no_spaces = preg_replace('/\s/u', '', $text);
 $num_char = strlen($text_no_spaces);
 
 if ($num_words == 0 ?? $num_char == 0) {
-    $errors = 'can\'t devide trough 0';
+    $errors['div'] = 'please enter something in the textarea';
 } else {
     $avr_char = $num_char / $num_words;
     $avrCharResult = round($avr_char, 1);
@@ -34,7 +34,7 @@ function array_most_common($array)
     $counted = array_count_values($array);
     arsort($counted);
     $top_five = array_slice($counted, 0, 5);
-    return ($top_five);
+    return $top_five;
 }
 $mostCommon = array_most_common($exploded);
 ?>
