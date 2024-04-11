@@ -1,4 +1,8 @@
 <?php
+if ($text == 'temp') {
+    unset($text);
+    $text = '';
+}
 $exploded = explode(" ", $text);
 
 //Count the total number of words.

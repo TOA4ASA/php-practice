@@ -6,7 +6,10 @@ $exploded = explode(" ", $texts);
 // dd($exploded);
 if (!isset($texts)) {
     $uniqueTexts = ['not found, make sure the text is not empty'];
-} else {
+} elseif ( $texts == 'temp' ) {
+    $uniqueTexts = [];
+} 
+else {
     $uniqueTexts = array_unique($exploded);
 }
 

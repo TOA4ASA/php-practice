@@ -6,10 +6,17 @@ $switchParlinedrome = htmlspecialchars($_GET['pd']) ?? null;
 $switchDuplicates = htmlspecialchars($_GET['D']) ?? null;
 $switchWordCount = htmlspecialchars($_GET['wc']) ?? null;
 $switchCalc = htmlspecialchars($_GET['cal']) ?? null;
-$val1 = htmlspecialchars($_GET['val1']) ?? 'not set';
-$val2 = htmlspecialchars($_GET['val2']) ?? 'not set';
-$text = htmlspecialchars($_GET['text']);
+$val1 = htmlspecialchars($_GET['val1']) ?? null;
+$val2 = htmlspecialchars($_GET['val2']) ?? null;
+$text = htmlspecialchars($_GET['text']) ?? null;
+$definend = $val1.$val2.$text;
+
+if (empty($definend)){
+    header("Location: ?method=&val1=temp&val2=temp&D=on&pd=on&wc=on&cal=on&text=temp");
+    die();
+}
 $errors = [];
+
 
 $filePath = [
     'duplicates/index.php' => isset($switchDuplicates),
@@ -45,8 +52,8 @@ foreach ($filePath as $path => $condition) {
             <?php if ($calcReq == true) {
                 require 'calc/index.php'; ?>
 
-                <tbody><input id="val1" name=val1 type="text" value="<?= htmlspecialchars($_GET['val1']) ?? '' ?>"></tbody><br>
-                <tbody><input id="val2" name=val2 type='text' value="<?= htmlspecialchars($_GET['val2']) ?? '' ?>"></tbody><br><br>
+                <tbody><input id="val1" name=val1 type="text" value="<?= $val1 == 'temp' ? '' : $val1 ?>"></tbody><br>
+                <tbody><input id="val2" name=val2 type='text' value="<?= $val2 == 'temp' ? '' : $val2 ?>"></tbody><br><br>
                 <tbody><input type="submit"></tbody>
 
                 <div>

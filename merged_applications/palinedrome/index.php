@@ -8,6 +8,9 @@ $palidrome = strrev($texts);
 if(empty($texts)){
     $palResult= '';
 }
+elseif ( $texts == 'temp' ) {
+    $palResult = '';
+}
 elseif ($texts == $palidrome) {
     $palResult = 'This is a palindrome.';
 } else {
