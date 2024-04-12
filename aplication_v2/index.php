@@ -3,10 +3,8 @@
 //requirements
 const BASE_PATH = __DIR__ . '\\';
 require 'logic/functions/base.php';
-require 'base/basevars.php';
 require 'sessions/sessions.php';
 
-//toggle
 ?>
 <form action="" method="get">
     <?php

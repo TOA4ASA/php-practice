@@ -1,6 +1,6 @@
 <?php
 // checking for errors
-$calResult = 'no numbers found';
+$calResult = '';
 if ($val1 == 'temp' && $val2 == 'temp') {
     '';
 } elseif (empty($val1)) {
