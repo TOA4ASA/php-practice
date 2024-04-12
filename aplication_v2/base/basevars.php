@@ -1,2 +1,1 @@
 <?php
-$calcReq = false;

@@ -1,6 +1,36 @@
 <?php
-if ($calcReq == true) {
 ?>
+<html>
+
+<body>
+    <div class=sidenavright>
+        <table>
+            <h1>
+
+                <label for="method">calculator</label><br>
+                <form action="" name=form method="get">
+                    <tbody>
+
+                        <div class=background>
+                            <select name="method" id="method">
+                                <!-- determinants method -->
+                                <option value="+" <?php selected('+') ?>>sum | +</option>
+                                <option value="-" <?php selected('-') ?>>difference | -</option>
+                                <option value="*" <?php selected('*') ?>>product | *</option>
+                                <option value="/" <?php selected('/') ?>>quotient | /</option>
+                            </select>
+
+                            <script type="text/javascript">
+                                document.getElementById('method').value = "<?php echo $_GET['method'] ?? '+'; ?>";
+                            </script>
+                        </div>
+
+                    </tbody>
+                    <br><br>
+                </form>
+
+            </h1>
+        </table>
 
 
         <tbody><input id="val1" name=val1 type="text" value="<?= $val1 == 'temp' ? '' : $val1 ?>"></tbody><br>
@@ -10,5 +40,7 @@ if ($calcReq == true) {
         <div>
             <h3><?= $calResult ?? null ?></h3>
         </div>
+    </div>
+</body>
 
-<?php } ?>
+</html>

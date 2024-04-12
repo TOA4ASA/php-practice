@@ -1,7 +1,7 @@
 <?php
 $require = [
-    'duplicates' => isset($switchDuplicates),
-    'palinedrome' => isset($switchParlinedrome),
-    'strings_and_arrays' => isset($switchWordCount),
-    'calculator' => isset($switchCalc)
+    'textfield/dupli.php' => empty($switchDuplicates),
+    'textfield/parline.php' => empty($switchParlinedrome),
+    'textfield/str_and_arr.php' => empty($switchWordCount),
+    'calculator' => empty($switchCalc)
 ];

@@ -11,3 +11,10 @@ function view($path, $attributes = [])
 
     require base_path('view/' . $path);
 }
+
+function logic($path, $attributes = [])
+{
+    extract($attributes);
+
+    require base_path('logic/' . $path);
+}
